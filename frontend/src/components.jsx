@@ -26,7 +26,7 @@ export function ProtectedRoute({ allowedRoles, children }) {
 export const homeForRole = (role) => role === 'ADMIN' ? '/admin' : role === 'STORE_OWNER' ? '/owner' : '/stores';
 
 function Logo() {
-  return <NavLink className="brand" to="/"><span className="brand-mark"><span /></span><span><strong>REVORA</strong><small>discover · rate · trust</small></span></NavLink>;
+  return <NavLink className="brand" to="/"><img src="/favicon.png" alt="REVORA" className="brand-logo-img" /><span><strong>REVORA</strong><small>discover · rate · trust</small></span></NavLink>;
 }
 
 export function Shell({ children }) {

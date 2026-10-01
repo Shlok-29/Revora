@@ -26,7 +26,7 @@ function App() {
   </Routes>;
 }
 
-function AuthLayout({ eyebrow, title, detail, children, footer }) { return <div className="auth-layout"><div className="auth-aside"><Link className="brand auth-brand" to="/login"><span className="brand-mark"><span /></span><span><strong>REVORA</strong><small>discover · rate · trust</small></span></Link><div className="auth-quote"><div className="eyebrow">The signal matters</div><h1>{title}</h1><p>{detail}</p><div className="auth-signal"><span className="signal-line" /><small>Independent places. Considered opinions.</small></div></div><small className="auth-legal">REVORA / 2026</small></div><div className="auth-main"><div className="auth-card"><div className="eyebrow">{eyebrow}</div>{children}{footer}</div></div></div>; }
+function AuthLayout({ eyebrow, title, detail, children, footer }) { return <div className="auth-layout"><div className="auth-aside"><Link className="brand auth-brand" to="/login"><img src="/favicon.png" alt="REVORA" className="brand-logo-img" /><span><strong>REVORA</strong><small>discover · rate · trust</small></span></Link><div className="auth-quote"><div className="eyebrow">The signal matters</div><h1>{title}</h1><p>{detail}</p><div className="auth-signal"><span className="signal-line" /><small>Independent places. Considered opinions.</small></div></div><small className="auth-legal">REVORA / 2026</small></div><div className="auth-main"><div className="auth-card"><div className="eyebrow">{eyebrow}</div>{children}{footer}</div></div></div>; }
 
 function LoginPage() {
   const { login, isAuthenticated } = useAuth(); const navigate = useNavigate(); const toast = useToast(); const [error, setError] = useState('');
