@@ -1,0 +1,42 @@
+{
+  "name": "revora",
+  "version": "1.0.0",
+  "private": true,
+  "description": "REVORA store rating platform",
+  "type": "module",
+  "packageManager": "npm@10.9.3",
+  "scripts": {
+    "dev": "vite --config frontend/vite.config.js --host 0.0.0.0 --port 3000",
+    "dev:api": "node backend/src/server.js",
+    "build": "vite build --config frontend/vite.config.js",
+    "start": "node backend/src/server.js",
+    "test": "node --test tests/*.test.js",
+    "lint": "eslint frontend/src backend/src --ext .js,.jsx",
+    "format": "prettier --write .",
+    "prisma:generate": "prisma generate --schema backend/prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev --schema backend/prisma/schema.prisma",
+    "prisma:seed": "node backend/prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "axios": "^1.12.2",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-hook-form": "^7.63.0",
+    "react-router-dom": "^7.9.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "eslint": "^9.36.0",
+    "prettier": "^3.6.2",
+    "prisma": "^6.16.2",
+    "vite": "^7.1.7"
+  }
+}
