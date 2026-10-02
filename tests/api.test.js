@@ -56,3 +56,35 @@ test('creates and updates one rating, then computes the average', async () => {
   assert.equal(stores.body.items[0].myRating, 5);
   assert.equal(stores.body.items[0].avgRating, 5);
 });
+
+test('supports city and location input to find nearest cafes and restaurants', async () => {
+  // Login with city Mumbai
+  const login = await request('/auth/login', {
+    method: 'POST',
+    body: { email: 'nora@revora.app', password: 'User!2345', city: 'Mumbai', lat: 19.0558, lng: 72.8315 },
+  });
+  assert.equal(login.status, 200);
+  assert.equal(login.body.user.city, 'Mumbai');
+
+  // Query stores with Mumbai coordinates
+  const stores = await request('/stores?city=Mumbai&lat=19.0558&lng=72.8315', { token: login.body.token });
+  assert.equal(stores.status, 200);
+  assert.ok(stores.body.items.length > 0);
+  // Nearest store should be Subko Coffee (lat 19.0558, lng 72.8315 => distance 0 km)
+  assert.equal(stores.body.items[0].city, 'Mumbai');
+  assert.equal(stores.body.items[0].distanceKm, 0);
+
+  // Update location via PUT /auth/location to Delhi
+  const locUpdate = await request('/auth/location', {
+    method: 'PUT',
+    token: login.body.token,
+    body: { city: 'Delhi', lat: 28.5919, lng: 77.2374 },
+  });
+  assert.equal(locUpdate.status, 200);
+  assert.equal(locUpdate.body.user.city, 'Delhi');
+
+  // Query stores near Delhi
+  const delhiStores = await request('/stores?city=Delhi&onlyCity=true', { token: login.body.token });
+  assert.equal(delhiStores.status, 200);
+  assert.ok(delhiStores.body.items.every((s) => s.city === 'Delhi'));
+});

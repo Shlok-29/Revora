@@ -14,7 +14,10 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const url = error.config?.url || '';
+    const isAuthAttempt = url.includes('/auth/login') || url.includes('/auth/signup');
+    const hadToken = Boolean(localStorage.getItem('revora_token'));
+    if (error.response?.status === 401 && hadToken && !isAuthAttempt) {
       localStorage.removeItem('revora_token');
       localStorage.removeItem('revora_user');
       window.dispatchEvent(new Event('revora:unauthorized'));

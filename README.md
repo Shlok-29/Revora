@@ -70,7 +70,7 @@ REVORA addresses these challenges through a thoughtfully engineered architecture
 - **Interactive 1–5 Star Rating Engine**: Instant client-side star ratings with optimistic feedback and backend upsert logic.
 - **Store Owner Pulse Dashboard**: Real-time signal metrics displaying average ratings, review count, and a chronological patron review feed.
 - **Administrative Governance Suite**: Tools to create and edit user profiles, assign store ownership, curate places, and view aggregate platform health metrics.
-- **Dark / Light Mode Switching**: Persistent theme preference stored locally with curated color palettes (Fraunces & DM Sans typography, soft ambient background glows).
+- **Dark / Light Mode Switching**: Persistent theme preference stored locally with curated color palettes (Lora, Plus Jakarta Sans, and Newsreader humanized typography, soft ambient background glows).
 - **Zod Input Validation**: Robust client and server validation enforcing character limits (names 20–60 chars, addresses ≤400 chars, passwords 8–16 chars with uppercase and special character requirements).
 - **Security Best Practices**: Bcrypt password hashing (10 salt rounds), Helmet security headers, CORS origin enforcement, and Express rate limiting.
 
@@ -384,7 +384,7 @@ Contributions are welcome! Please follow these steps:
 
 ## Acknowledgements / References
 
-- Typography: [Fraunces](https://fonts.google.com/specimen/Fraunces) and [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts.
+- Typography: [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans), [Lora](https://fonts.google.com/specimen/Lora), and [Newsreader](https://fonts.google.com/specimen/Newsreader) via Google Fonts.
 - Icons & Geometry: Bespoke inline SVG and CSS micro-animations.
 - ORM Documentation: [Prisma Documentation](https://www.prisma.io/docs).
 - React Community: [React 19 Documentation](https://react.dev).
