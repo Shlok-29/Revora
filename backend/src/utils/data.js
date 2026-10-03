@@ -3,9 +3,9 @@ import { randomUUID } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { calculateDistanceKm, findNearestIndianCity } from './indianCities.js';
+import { calculateDistanceKm, findNearestIndianCity, detectCityFromAddress, INDIAN_CITIES } from './indianCities.js';
 
-export { calculateDistanceKm, findNearestIndianCity };
+export { calculateDistanceKm, findNearestIndianCity, detectCityFromAddress, INDIAN_CITIES };
 
 const DATA_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../data');
 const DATA_FILE = path.join(DATA_DIR, 'revora_db.json');

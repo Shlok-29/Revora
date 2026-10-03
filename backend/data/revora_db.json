@@ -4,93 +4,107 @@
       "id": "usr_admin_001",
       "name": "Avery Sterling",
       "email": "admin@revora.app",
-      "passwordHash": "$2b$10$kpn.mOPOWdSP6..enGjceuNaiYDVLb3CRm7LDLCezK62Xf1sf8tbe",
+      "passwordHash": "$2b$10$2kQa34SmBD7kNqH7nreYo.LVyFnWHLUaPzvtBrLGpVNemuOcd1V52",
       "address": "14 Observatory Way, Fort, Mumbai",
       "city": "Mumbai",
       "lat": 18.93,
       "lng": 72.833,
       "role": "ADMIN",
-      "createdAt": "2026-06-04T14:59:24.538Z",
-      "updatedAt": "2026-09-30T14:59:24.539Z"
+      "createdAt": "2026-06-05T06:36:42.140Z",
+      "updatedAt": "2026-10-01T06:36:42.142Z"
     },
     {
       "id": "usr_owner_001",
       "name": "Mara Ellison",
       "email": "owner@revora.app",
-      "passwordHash": "$2b$10$/ks1pyJncr7wZR9Av.l8YuAGoG44aVqN7WenjNRQf7AeNK6dTJ556",
+      "passwordHash": "$2b$10$qUnvfFwcQBSHfxClqB3/cOUU7pVe0FYRZ8b/Rvt0mqjlh7se3lORy",
       "address": "Chapel Road, Bandra West, Mumbai",
       "city": "Mumbai",
       "lat": 19.055,
       "lng": 72.829,
       "role": "STORE_OWNER",
-      "createdAt": "2026-07-04T14:59:24.641Z",
-      "updatedAt": "2026-09-27T14:59:24.641Z"
+      "createdAt": "2026-07-05T06:36:42.331Z",
+      "updatedAt": "2026-09-28T06:36:42.331Z"
     },
     {
       "id": "usr_owner_002",
       "name": "Jon Bellweather",
       "email": "jon@revora.app",
-      "passwordHash": "$2b$10$.l2VX9VMhDY06QoJiOfRgu.JxpQTOAcbOTkt8WtvfA77rJ4mtrXTO",
+      "passwordHash": "$2b$10$SxPP5fx78PckkimiNyOdb.h23e3O9ZOxwgevNux97OjmERZgwU5Ka",
       "address": "100ft Road, Indiranagar, Bengaluru",
       "city": "Bengaluru",
       "lat": 12.978,
       "lng": 77.64,
       "role": "STORE_OWNER",
-      "createdAt": "2026-07-08T14:59:24.736Z",
-      "updatedAt": "2026-09-28T14:59:24.736Z"
+      "createdAt": "2026-07-09T06:36:42.508Z",
+      "updatedAt": "2026-09-29T06:36:42.508Z"
     },
     {
       "id": "usr_user_001",
       "name": "Nora Alvarez",
       "email": "nora@revora.app",
-      "passwordHash": "$2b$10$Wp0Uk0mg16JovnRsfVni3ejgSQc4bzOa.i7ZLaTnjv9IvB9KzmbHy",
+      "passwordHash": "$2b$10$TLKVFpnz0rLkkt65ew/DCeJtJda9wYMDMQgFA2o5zrVqCMi5ExKMq",
       "address": "Arera Colony, Bhopal",
       "city": "Delhi",
       "lat": 28.5919,
       "lng": 77.2374,
       "role": "USER",
-      "createdAt": "2026-08-23T14:59:24.838Z",
-      "updatedAt": "2026-10-02T14:59:25.964Z"
+      "createdAt": "2026-08-24T06:36:42.729Z",
+      "updatedAt": "2026-10-03T06:36:44.278Z"
     },
     {
       "id": "usr_user_002",
       "name": "Theo Whitman",
       "email": "theo@revora.app",
-      "passwordHash": "$2b$10$2v16e5SvN104yMNzGBiSaOrrYNrFEw2IQ.oOzbCkgQ1fDv1F2gArm",
+      "passwordHash": "$2b$10$yhihQAuSKgAfTnjnojCrIu/1nFJYAq0yLzaJbwHlDrgc68eLu/l4K",
       "address": "Lodhi Colony, New Delhi",
       "city": "Delhi",
       "lat": 28.589,
       "lng": 77.225,
       "role": "USER",
-      "createdAt": "2026-08-31T14:59:24.983Z",
-      "updatedAt": "2026-09-24T14:59:24.983Z"
+      "createdAt": "2026-09-01T06:36:42.875Z",
+      "updatedAt": "2026-09-25T06:36:42.875Z"
     },
     {
       "id": "usr_user_003",
       "name": "Priya Nanduri",
       "email": "priya@revora.app",
-      "passwordHash": "$2b$10$WSroSUnU1Mw99BoodlTrWOVxjy.XWV.40AyMSUffJWjoVX1LujLxS",
+      "passwordHash": "$2b$10$tvxbHUFGcMBH6H7Yy8isreNR24DIJpOFiZgiiM3lk6EsstBc4ziJK",
       "address": "Koramangala 4th Block, Bengaluru",
       "city": "Bengaluru",
       "lat": 12.935,
       "lng": 77.625,
       "role": "USER",
-      "createdAt": "2026-09-07T14:59:25.121Z",
-      "updatedAt": "2026-09-25T14:59:25.121Z"
+      "createdAt": "2026-09-08T06:36:43.022Z",
+      "updatedAt": "2026-09-26T06:36:43.022Z"
     },
     {
-      "id": "usr_9a332b3a-13a",
+      "id": "usr_30ce8e0e-602",
       "name": "A considered REVORA community member",
-      "email": "test-1790953165267@revora.app",
+      "email": "test-1791009403248@revora.app",
       "password": "Welcome!2",
       "address": "1 Test Street",
-      "city": null,
-      "lat": null,
-      "lng": null,
-      "passwordHash": "$2b$10$E1pPf/YgkWtaKCtVxWCqcueuyhuJSjDbjPnS34qT8DCVu9ysuHy3S",
+      "city": "Mumbai",
+      "lat": 19.076,
+      "lng": 72.8777,
+      "passwordHash": "$2b$10$rt45kHxbcjh9W6gbMqqZhu7L.8R79GSbcLhP8eaP6.BMW4dD3yV.6",
       "role": "USER",
-      "createdAt": "2026-10-02T14:59:25.410Z",
-      "updatedAt": "2026-10-02T14:59:25.410Z"
+      "createdAt": "2026-10-03T06:36:43.475Z",
+      "updatedAt": "2026-10-03T06:36:43.475Z"
+    },
+    {
+      "id": "usr_61e14b49-77d",
+      "name": "A Bangalore specialty coffee explorer",
+      "email": "city-test-1791009403487@revora.app",
+      "password": "Coffee!123",
+      "address": "42 Indiranagar 100ft Road, Bangalore, 560038",
+      "city": "Bengaluru",
+      "lat": 12.9716,
+      "lng": 77.5946,
+      "passwordHash": "$2b$10$2hFor3juCjHHd9oWYU8HWee/zWhiCBl5h.b7/bpQWgK23pDAU9Ci2",
+      "role": "USER",
+      "createdAt": "2026-10-03T06:36:43.685Z",
+      "updatedAt": "2026-10-03T06:36:43.685Z"
     }
   ],
   "stores": [
@@ -112,8 +126,8 @@
       "lat": 23.2428,
       "lng": 77.3872,
       "ownerId": null,
-      "createdAt": "2026-06-19T14:59:25.121Z",
-      "updatedAt": "2026-09-30T14:59:25.121Z"
+      "createdAt": "2026-06-20T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_bho_002",
@@ -133,8 +147,8 @@
       "lat": 23.2145,
       "lng": 77.432,
       "ownerId": "usr_owner_001",
-      "createdAt": "2026-06-24T14:59:25.121Z",
-      "updatedAt": "2026-09-29T14:59:25.121Z"
+      "createdAt": "2026-06-25T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_bho_003",
@@ -154,8 +168,8 @@
       "lat": 23.212,
       "lng": 77.4305,
       "ownerId": null,
-      "createdAt": "2026-06-29T14:59:25.121Z",
-      "updatedAt": "2026-09-28T14:59:25.121Z"
+      "createdAt": "2026-06-30T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "store_bho_004",
@@ -174,8 +188,8 @@
       "lat": 23.2382,
       "lng": 77.4019,
       "ownerId": null,
-      "createdAt": "2026-06-04T14:59:25.121Z",
-      "updatedAt": "2026-10-01T14:59:25.121Z"
+      "createdAt": "2026-06-05T06:36:43.022Z",
+      "updatedAt": "2026-10-02T06:36:43.022Z"
     },
     {
       "id": "store_bho_005",
@@ -194,8 +208,8 @@
       "lat": 23.2325,
       "lng": 77.4352,
       "ownerId": null,
-      "createdAt": "2026-06-26T14:59:25.121Z",
-      "updatedAt": "2026-09-27T14:59:25.121Z"
+      "createdAt": "2026-06-27T06:36:43.022Z",
+      "updatedAt": "2026-09-28T06:36:43.022Z"
     },
     {
       "id": "store_bho_006",
@@ -214,8 +228,8 @@
       "lat": 23.247,
       "lng": 77.3815,
       "ownerId": null,
-      "createdAt": "2026-07-02T14:59:25.121Z",
-      "updatedAt": "2026-09-30T14:59:25.121Z"
+      "createdAt": "2026-07-03T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_bho_007",
@@ -234,8 +248,8 @@
       "lat": 23.2132,
       "lng": 77.4312,
       "ownerId": null,
-      "createdAt": "2026-07-06T14:59:25.121Z",
-      "updatedAt": "2026-09-26T14:59:25.121Z"
+      "createdAt": "2026-07-07T06:36:43.022Z",
+      "updatedAt": "2026-09-27T06:36:43.022Z"
     },
     {
       "id": "store_bho_008",
@@ -254,8 +268,8 @@
       "lat": 23.2005,
       "lng": 77.4241,
       "ownerId": null,
-      "createdAt": "2026-07-10T14:59:25.121Z",
-      "updatedAt": "2026-09-29T14:59:25.121Z"
+      "createdAt": "2026-07-11T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_bho_009",
@@ -275,8 +289,8 @@
       "lat": 23.2568,
       "lng": 77.4102,
       "ownerId": null,
-      "createdAt": "2026-06-09T14:59:25.121Z",
-      "updatedAt": "2026-09-28T14:59:25.121Z"
+      "createdAt": "2026-06-10T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "store_bho_010",
@@ -295,8 +309,8 @@
       "lat": 23.265,
       "lng": 77.391,
       "ownerId": null,
-      "createdAt": "2026-07-14T14:59:25.121Z",
-      "updatedAt": "2026-09-27T14:59:25.121Z"
+      "createdAt": "2026-07-15T06:36:43.022Z",
+      "updatedAt": "2026-09-28T06:36:43.022Z"
     },
     {
       "id": "store_ind_001",
@@ -315,8 +329,8 @@
       "lat": 22.7533,
       "lng": 75.8937,
       "ownerId": null,
-      "createdAt": "2026-07-04T14:59:25.121Z",
-      "updatedAt": "2026-09-29T14:59:25.121Z"
+      "createdAt": "2026-07-05T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_ind_002",
@@ -335,8 +349,8 @@
       "lat": 22.7244,
       "lng": 75.8839,
       "ownerId": null,
-      "createdAt": "2026-06-14T14:59:25.121Z",
-      "updatedAt": "2026-09-28T14:59:25.121Z"
+      "createdAt": "2026-06-15T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "store_ind_003",
@@ -355,8 +369,8 @@
       "lat": 22.7488,
       "lng": 75.892,
       "ownerId": null,
-      "createdAt": "2026-07-09T14:59:25.121Z",
-      "updatedAt": "2026-09-30T14:59:25.121Z"
+      "createdAt": "2026-07-10T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_mum_001",
@@ -375,8 +389,8 @@
       "lat": 19.0558,
       "lng": 72.8315,
       "ownerId": "usr_owner_001",
-      "createdAt": "2026-06-24T14:59:25.121Z",
-      "updatedAt": "2026-09-29T14:59:25.121Z"
+      "createdAt": "2026-06-25T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_mum_002",
@@ -395,8 +409,8 @@
       "lat": 18.9953,
       "lng": 72.8242,
       "ownerId": null,
-      "createdAt": "2026-06-29T14:59:25.121Z",
-      "updatedAt": "2026-09-28T14:59:25.121Z"
+      "createdAt": "2026-06-30T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "store_mum_003",
@@ -415,8 +429,8 @@
       "lat": 18.9287,
       "lng": 72.8331,
       "ownerId": null,
-      "createdAt": "2026-07-04T14:59:25.121Z",
-      "updatedAt": "2026-09-30T14:59:25.121Z"
+      "createdAt": "2026-07-05T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_mum_004",
@@ -435,8 +449,8 @@
       "lat": 18.9351,
       "lng": 72.8402,
       "ownerId": null,
-      "createdAt": "2026-07-09T14:59:25.121Z",
-      "updatedAt": "2026-09-27T14:59:25.121Z"
+      "createdAt": "2026-07-10T06:36:43.022Z",
+      "updatedAt": "2026-09-28T06:36:43.022Z"
     },
     {
       "id": "store_mum_005",
@@ -455,8 +469,8 @@
       "lat": 19.0628,
       "lng": 72.829,
       "ownerId": null,
-      "createdAt": "2026-07-14T14:59:25.121Z",
-      "updatedAt": "2026-09-26T14:59:25.121Z"
+      "createdAt": "2026-07-15T06:36:43.022Z",
+      "updatedAt": "2026-09-27T06:36:43.022Z"
     },
     {
       "id": "store_mum_006",
@@ -475,8 +489,8 @@
       "lat": 19.0601,
       "lng": 72.836,
       "ownerId": null,
-      "createdAt": "2026-07-19T14:59:25.121Z",
-      "updatedAt": "2026-09-24T14:59:25.121Z"
+      "createdAt": "2026-07-20T06:36:43.022Z",
+      "updatedAt": "2026-09-25T06:36:43.022Z"
     },
     {
       "id": "store_del_001",
@@ -495,8 +509,8 @@
       "lat": 28.5919,
       "lng": 77.2374,
       "ownerId": null,
-      "createdAt": "2026-06-14T14:59:25.121Z",
-      "updatedAt": "2026-09-30T14:59:25.121Z"
+      "createdAt": "2026-06-15T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_del_002",
@@ -515,8 +529,8 @@
       "lat": 28.6145,
       "lng": 77.2427,
       "ownerId": null,
-      "createdAt": "2026-06-19T14:59:25.121Z",
-      "updatedAt": "2026-10-01T14:59:25.121Z"
+      "createdAt": "2026-06-20T06:36:43.022Z",
+      "updatedAt": "2026-10-02T06:36:43.022Z"
     },
     {
       "id": "store_del_003",
@@ -535,8 +549,8 @@
       "lat": 28.6003,
       "lng": 77.2272,
       "ownerId": null,
-      "createdAt": "2026-06-26T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-06-27T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_del_004",
@@ -555,8 +569,8 @@
       "lat": 28.5558,
       "lng": 77.2185,
       "ownerId": null,
-      "createdAt": "2026-07-02T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-07-03T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "store_blr_001",
@@ -575,8 +589,8 @@
       "lat": 12.9345,
       "lng": 77.6266,
       "ownerId": "usr_owner_002",
-      "createdAt": "2026-06-12T14:59:25.122Z",
-      "updatedAt": "2026-10-01T14:59:25.122Z"
+      "createdAt": "2026-06-13T06:36:43.022Z",
+      "updatedAt": "2026-10-02T06:36:43.022Z"
     },
     {
       "id": "store_blr_002",
@@ -595,8 +609,8 @@
       "lat": 12.9438,
       "lng": 77.5714,
       "ownerId": null,
-      "createdAt": "2026-06-09T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-06-10T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_blr_003",
@@ -615,8 +629,8 @@
       "lat": 12.9793,
       "lng": 77.6406,
       "ownerId": null,
-      "createdAt": "2026-06-16T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-06-17T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_blr_004",
@@ -635,8 +649,8 @@
       "lat": 12.9718,
       "lng": 77.6412,
       "ownerId": null,
-      "createdAt": "2026-06-30T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-07-01T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_pun_001",
@@ -655,8 +669,8 @@
       "lat": 18.5167,
       "lng": 73.8415,
       "ownerId": null,
-      "createdAt": "2026-06-04T14:59:25.122Z",
-      "updatedAt": "2026-10-01T14:59:25.122Z"
+      "createdAt": "2026-06-05T06:36:43.022Z",
+      "updatedAt": "2026-10-02T06:36:43.022Z"
     },
     {
       "id": "store_pun_002",
@@ -675,8 +689,8 @@
       "lat": 18.5362,
       "lng": 73.894,
       "ownerId": null,
-      "createdAt": "2026-06-14T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-06-15T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_hyd_001",
@@ -695,8 +709,8 @@
       "lat": 17.4168,
       "lng": 78.4385,
       "ownerId": null,
-      "createdAt": "2026-06-26T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-06-27T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_hyd_003",
@@ -715,8 +729,8 @@
       "lat": 17.4416,
       "lng": 78.4983,
       "ownerId": null,
-      "createdAt": "2026-06-06T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-06-07T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_jai_001",
@@ -735,8 +749,8 @@
       "lat": 26.9067,
       "lng": 75.8083,
       "ownerId": null,
-      "createdAt": "2026-06-28T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-06-29T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_jai_002",
@@ -755,8 +769,8 @@
       "lat": 26.9032,
       "lng": 75.8041,
       "ownerId": null,
-      "createdAt": "2026-07-03T14:59:25.122Z",
-      "updatedAt": "2026-09-27T14:59:25.122Z"
+      "createdAt": "2026-07-04T06:36:43.022Z",
+      "updatedAt": "2026-09-28T06:36:43.022Z"
     },
     {
       "id": "store_kol_001",
@@ -775,8 +789,8 @@
       "lat": 22.5518,
       "lng": 88.3524,
       "ownerId": null,
-      "createdAt": "2026-05-30T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-05-31T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_kol_002",
@@ -795,8 +809,8 @@
       "lat": 22.5521,
       "lng": 88.3529,
       "ownerId": null,
-      "createdAt": "2026-06-04T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-06-05T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "store_chn_001",
@@ -815,8 +829,8 @@
       "lat": 13.0538,
       "lng": 80.2599,
       "ownerId": null,
-      "createdAt": "2026-06-20T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-06-21T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "store_chn_002",
@@ -835,8 +849,8 @@
       "lat": 13.0418,
       "lng": 80.2337,
       "ownerId": null,
-      "createdAt": "2026-06-09T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-06-10T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "store_001",
@@ -854,8 +868,8 @@
       "lat": 45.5152,
       "lng": -122.6784,
       "ownerId": "usr_owner_001",
-      "createdAt": "2026-07-10T14:59:25.122Z",
-      "updatedAt": "2026-09-27T14:59:25.122Z"
+      "createdAt": "2026-07-11T06:36:43.022Z",
+      "updatedAt": "2026-09-28T06:36:43.022Z"
     },
     {
       "id": "store_002",
@@ -873,8 +887,8 @@
       "lat": 30.2672,
       "lng": -97.7431,
       "ownerId": "usr_owner_002",
-      "createdAt": "2026-07-18T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-07-19T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "store_003",
@@ -892,8 +906,8 @@
       "lat": 47.6062,
       "lng": -122.3321,
       "ownerId": null,
-      "createdAt": "2026-07-31T14:59:25.122Z",
-      "updatedAt": "2026-09-19T14:59:25.122Z"
+      "createdAt": "2026-08-01T06:36:43.022Z",
+      "updatedAt": "2026-09-20T06:36:43.022Z"
     },
     {
       "id": "store_004",
@@ -911,8 +925,8 @@
       "lat": 40.6782,
       "lng": -73.9442,
       "ownerId": null,
-      "createdAt": "2026-08-22T14:59:25.122Z",
-      "updatedAt": "2026-09-21T14:59:25.122Z"
+      "createdAt": "2026-08-23T06:36:43.022Z",
+      "updatedAt": "2026-09-22T06:36:43.022Z"
     },
     {
       "id": "store_005",
@@ -930,8 +944,8 @@
       "lat": 34.0522,
       "lng": -118.2437,
       "ownerId": null,
-      "createdAt": "2026-09-04T14:59:25.122Z",
-      "updatedAt": "2026-09-23T14:59:25.122Z"
+      "createdAt": "2026-09-05T06:36:43.022Z",
+      "updatedAt": "2026-09-24T06:36:43.022Z"
     }
   ],
   "ratings": [
@@ -940,400 +954,400 @@
       "userId": "usr_user_001",
       "storeId": "store_001",
       "rating": 5,
-      "createdAt": "2026-09-20T14:59:25.122Z",
-      "updatedAt": "2026-09-20T14:59:25.122Z"
+      "createdAt": "2026-09-21T06:36:43.022Z",
+      "updatedAt": "2026-09-21T06:36:43.022Z"
     },
     {
       "id": "rating_002",
       "userId": "usr_user_002",
       "storeId": "store_001",
       "rating": 4,
-      "createdAt": "2026-09-24T14:59:25.122Z",
-      "updatedAt": "2026-09-24T14:59:25.122Z"
+      "createdAt": "2026-09-25T06:36:43.022Z",
+      "updatedAt": "2026-09-25T06:36:43.022Z"
     },
     {
       "id": "rating_003",
       "userId": "usr_user_003",
       "storeId": "store_001",
       "rating": 5,
-      "createdAt": "2026-09-29T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-09-30T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "rating_004",
       "userId": "usr_user_001",
       "storeId": "store_002",
       "rating": 4,
-      "createdAt": "2026-09-16T14:59:25.122Z",
-      "updatedAt": "2026-09-16T14:59:25.122Z"
+      "createdAt": "2026-09-17T06:36:43.022Z",
+      "updatedAt": "2026-09-17T06:36:43.022Z"
     },
     {
       "id": "rating_005",
       "userId": "usr_user_002",
       "storeId": "store_002",
       "rating": 3,
-      "createdAt": "2026-09-26T14:59:25.122Z",
-      "updatedAt": "2026-09-26T14:59:25.122Z"
+      "createdAt": "2026-09-27T06:36:43.022Z",
+      "updatedAt": "2026-09-27T06:36:43.022Z"
     },
     {
       "id": "rating_006",
       "userId": "usr_user_003",
       "storeId": "store_003",
       "rating": 5,
-      "createdAt": "2026-09-28T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-09-29T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "rating_007",
       "userId": "usr_user_002",
       "storeId": "store_004",
       "rating": 4,
-      "createdAt": "2026-09-23T14:59:25.122Z",
-      "updatedAt": "2026-09-23T14:59:25.122Z"
+      "createdAt": "2026-09-24T06:36:43.022Z",
+      "updatedAt": "2026-09-24T06:36:43.022Z"
     },
     {
       "id": "rating_bho_01",
       "userId": "usr_user_001",
       "storeId": "store_bho_001",
       "rating": 5,
-      "createdAt": "2026-09-29T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-09-30T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "rating_bho_02",
       "userId": "usr_user_002",
       "storeId": "store_bho_001",
       "rating": 5,
-      "createdAt": "2026-09-30T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-10-01T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "rating_bho_03",
       "userId": "usr_user_001",
       "storeId": "store_bho_002",
       "rating": 5,
-      "createdAt": "2026-09-28T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-09-29T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "rating_bho_04",
       "userId": "usr_user_003",
       "storeId": "store_bho_002",
       "rating": 5,
-      "createdAt": "2026-10-01T14:59:25.122Z",
-      "updatedAt": "2026-10-01T14:59:25.122Z"
+      "createdAt": "2026-10-02T06:36:43.022Z",
+      "updatedAt": "2026-10-02T06:36:43.022Z"
     },
     {
       "id": "rating_bho_05",
       "userId": "usr_user_001",
       "storeId": "store_bho_003",
       "rating": 5,
-      "createdAt": "2026-09-27T14:59:25.122Z",
-      "updatedAt": "2026-09-27T14:59:25.122Z"
+      "createdAt": "2026-09-28T06:36:43.022Z",
+      "updatedAt": "2026-09-28T06:36:43.022Z"
     },
     {
       "id": "rating_bho_06",
       "userId": "usr_user_002",
       "storeId": "store_bho_004",
       "rating": 5,
-      "createdAt": "2026-09-24T14:59:25.122Z",
-      "updatedAt": "2026-09-24T14:59:25.122Z"
+      "createdAt": "2026-09-25T06:36:43.022Z",
+      "updatedAt": "2026-09-25T06:36:43.022Z"
     },
     {
       "id": "rating_bho_07",
       "userId": "usr_user_001",
       "storeId": "store_bho_005",
       "rating": 5,
-      "createdAt": "2026-09-26T14:59:25.122Z",
-      "updatedAt": "2026-09-26T14:59:25.122Z"
+      "createdAt": "2026-09-27T06:36:43.022Z",
+      "updatedAt": "2026-09-27T06:36:43.022Z"
     },
     {
       "id": "rating_bho_08",
       "userId": "usr_user_003",
       "storeId": "store_bho_006",
       "rating": 5,
-      "createdAt": "2026-09-25T14:59:25.122Z",
-      "updatedAt": "2026-09-25T14:59:25.122Z"
+      "createdAt": "2026-09-26T06:36:43.022Z",
+      "updatedAt": "2026-09-26T06:36:43.022Z"
     },
     {
       "id": "rating_bho_09",
       "userId": "usr_user_001",
       "storeId": "store_bho_007",
       "rating": 4,
-      "createdAt": "2026-09-23T14:59:25.122Z",
-      "updatedAt": "2026-09-23T14:59:25.122Z"
+      "createdAt": "2026-09-24T06:36:43.022Z",
+      "updatedAt": "2026-09-24T06:36:43.022Z"
     },
     {
       "id": "rating_bho_10",
       "userId": "usr_user_002",
       "storeId": "store_bho_008",
       "rating": 5,
-      "createdAt": "2026-09-30T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-10-01T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "rating_bho_11",
       "userId": "usr_user_001",
       "storeId": "store_bho_009",
       "rating": 5,
-      "createdAt": "2026-09-22T14:59:25.122Z",
-      "updatedAt": "2026-09-22T14:59:25.122Z"
+      "createdAt": "2026-09-23T06:36:43.022Z",
+      "updatedAt": "2026-09-23T06:36:43.022Z"
     },
     {
       "id": "rating_bho_12",
       "userId": "usr_user_003",
       "storeId": "store_bho_010",
       "rating": 5,
-      "createdAt": "2026-09-28T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-09-29T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "rating_ind_01",
       "userId": "usr_user_001",
       "storeId": "store_ind_001",
       "rating": 5,
-      "createdAt": "2026-09-29T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-09-30T06:36:43.022Z",
+      "updatedAt": "2026-09-30T06:36:43.022Z"
     },
     {
       "id": "rating_ind_02",
       "userId": "usr_user_002",
       "storeId": "store_ind_002",
       "rating": 5,
-      "createdAt": "2026-09-28T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-09-29T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "rating_ind_03",
       "userId": "usr_user_003",
       "storeId": "store_ind_003",
       "rating": 4,
-      "createdAt": "2026-09-27T14:59:25.122Z",
-      "updatedAt": "2026-09-27T14:59:25.122Z"
+      "createdAt": "2026-09-28T06:36:43.022Z",
+      "updatedAt": "2026-09-28T06:36:43.022Z"
     },
     {
       "id": "rating_mum_01",
       "userId": "usr_user_001",
       "storeId": "store_mum_001",
       "rating": 5,
-      "createdAt": "2026-09-27T14:59:25.122Z",
-      "updatedAt": "2026-09-27T14:59:25.122Z"
+      "createdAt": "2026-09-28T06:36:43.022Z",
+      "updatedAt": "2026-09-28T06:36:43.022Z"
     },
     {
       "id": "rating_mum_02",
       "userId": "usr_user_002",
       "storeId": "store_mum_001",
       "rating": 5,
-      "createdAt": "2026-09-28T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-09-29T06:36:43.022Z",
+      "updatedAt": "2026-09-29T06:36:43.022Z"
     },
     {
       "id": "rating_mum_03",
       "userId": "usr_user_003",
       "storeId": "store_mum_001",
       "rating": 5,
-      "createdAt": "2026-09-30T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-10-01T06:36:43.022Z",
+      "updatedAt": "2026-10-01T06:36:43.022Z"
     },
     {
       "id": "rating_mum_04",
       "userId": "usr_user_001",
       "storeId": "store_mum_002",
       "rating": 5,
-      "createdAt": "2026-09-26T14:59:25.122Z",
-      "updatedAt": "2026-09-26T14:59:25.122Z"
+      "createdAt": "2026-09-27T06:36:43.022Z",
+      "updatedAt": "2026-09-27T06:36:43.022Z"
     },
     {
       "id": "rating_mum_05",
       "userId": "usr_user_002",
       "storeId": "store_mum_002",
       "rating": 4,
-      "createdAt": "2026-09-27T14:59:25.122Z",
-      "updatedAt": "2026-09-27T14:59:25.122Z"
+      "createdAt": "2026-09-28T06:36:43.023Z",
+      "updatedAt": "2026-09-28T06:36:43.023Z"
     },
     {
       "id": "rating_mum_06",
       "userId": "usr_user_001",
       "storeId": "store_mum_003",
       "rating": 5,
-      "createdAt": "2026-09-25T14:59:25.122Z",
-      "updatedAt": "2026-09-25T14:59:25.122Z"
+      "createdAt": "2026-09-26T06:36:43.023Z",
+      "updatedAt": "2026-09-26T06:36:43.023Z"
     },
     {
       "id": "rating_mum_07",
       "userId": "usr_user_003",
       "storeId": "store_mum_005",
       "rating": 4,
-      "createdAt": "2026-09-24T14:59:25.122Z",
-      "updatedAt": "2026-09-24T14:59:25.122Z"
+      "createdAt": "2026-09-25T06:36:43.023Z",
+      "updatedAt": "2026-09-25T06:36:43.023Z"
     },
     {
       "id": "rating_del_01",
       "userId": "usr_user_002",
       "storeId": "store_del_001",
       "rating": 5,
-      "createdAt": "2026-09-27T14:59:25.122Z",
-      "updatedAt": "2026-09-27T14:59:25.122Z"
+      "createdAt": "2026-09-28T06:36:43.023Z",
+      "updatedAt": "2026-09-28T06:36:43.023Z"
     },
     {
       "id": "rating_del_02",
       "userId": "usr_user_001",
       "storeId": "store_del_001",
       "rating": 5,
-      "createdAt": "2026-09-29T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-09-30T06:36:43.023Z",
+      "updatedAt": "2026-09-30T06:36:43.023Z"
     },
     {
       "id": "rating_del_03",
       "userId": "usr_user_002",
       "storeId": "store_del_002",
       "rating": 5,
-      "createdAt": "2026-09-28T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-09-29T06:36:43.023Z",
+      "updatedAt": "2026-09-29T06:36:43.023Z"
     },
     {
       "id": "rating_del_04",
       "userId": "usr_user_003",
       "storeId": "store_del_003",
       "rating": 4,
-      "createdAt": "2026-09-26T14:59:25.122Z",
-      "updatedAt": "2026-09-26T14:59:25.122Z"
+      "createdAt": "2026-09-27T06:36:43.023Z",
+      "updatedAt": "2026-09-27T06:36:43.023Z"
     },
     {
       "id": "rating_del_05",
       "userId": "usr_user_002",
       "storeId": "store_del_004",
       "rating": 5,
-      "createdAt": "2026-09-25T14:59:25.122Z",
-      "updatedAt": "2026-09-25T14:59:25.122Z"
+      "createdAt": "2026-09-26T06:36:43.023Z",
+      "updatedAt": "2026-09-26T06:36:43.023Z"
     },
     {
       "id": "rating_blr_01",
       "userId": "usr_user_003",
       "storeId": "store_blr_001",
       "rating": 5,
-      "createdAt": "2026-09-30T14:59:25.122Z",
-      "updatedAt": "2026-09-30T14:59:25.122Z"
+      "createdAt": "2026-10-01T06:36:43.023Z",
+      "updatedAt": "2026-10-01T06:36:43.023Z"
     },
     {
       "id": "rating_blr_02",
       "userId": "usr_user_001",
       "storeId": "store_blr_001",
       "rating": 5,
-      "createdAt": "2026-10-01T14:59:25.122Z",
-      "updatedAt": "2026-10-01T14:59:25.122Z"
+      "createdAt": "2026-10-02T06:36:43.023Z",
+      "updatedAt": "2026-10-02T06:36:43.023Z"
     },
     {
       "id": "rating_blr_03",
       "userId": "usr_user_003",
       "storeId": "store_blr_002",
       "rating": 5,
-      "createdAt": "2026-09-24T14:59:25.122Z",
-      "updatedAt": "2026-09-24T14:59:25.122Z"
+      "createdAt": "2026-09-25T06:36:43.023Z",
+      "updatedAt": "2026-09-25T06:36:43.023Z"
     },
     {
       "id": "rating_blr_04",
       "userId": "usr_user_002",
       "storeId": "store_blr_003",
       "rating": 5,
-      "createdAt": "2026-09-28T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-09-29T06:36:43.023Z",
+      "updatedAt": "2026-09-29T06:36:43.023Z"
     },
     {
       "id": "rating_blr_05",
       "userId": "usr_user_003",
       "storeId": "store_blr_004",
       "rating": 5,
-      "createdAt": "2026-09-29T14:59:25.122Z",
-      "updatedAt": "2026-09-29T14:59:25.122Z"
+      "createdAt": "2026-09-30T06:36:43.023Z",
+      "updatedAt": "2026-09-30T06:36:43.023Z"
     },
     {
       "id": "rating_pun_01",
       "userId": "usr_user_001",
       "storeId": "store_pun_001",
       "rating": 5,
-      "createdAt": "2026-09-26T14:59:25.122Z",
-      "updatedAt": "2026-09-26T14:59:25.122Z"
+      "createdAt": "2026-09-27T06:36:43.023Z",
+      "updatedAt": "2026-09-27T06:36:43.023Z"
     },
     {
       "id": "rating_pun_02",
       "userId": "usr_user_002",
       "storeId": "store_pun_002",
       "rating": 4,
-      "createdAt": "2026-09-27T14:59:25.122Z",
-      "updatedAt": "2026-09-27T14:59:25.122Z"
+      "createdAt": "2026-09-28T06:36:43.023Z",
+      "updatedAt": "2026-09-28T06:36:43.023Z"
     },
     {
       "id": "rating_hyd_01",
       "userId": "usr_user_003",
       "storeId": "store_hyd_001",
       "rating": 5,
-      "createdAt": "2026-09-25T14:59:25.122Z",
-      "updatedAt": "2026-09-25T14:59:25.122Z"
+      "createdAt": "2026-09-26T06:36:43.023Z",
+      "updatedAt": "2026-09-26T06:36:43.023Z"
     },
     {
       "id": "rating_hyd_02",
       "userId": "usr_user_002",
       "storeId": "store_hyd_003",
       "rating": 5,
-      "createdAt": "2026-09-23T14:59:25.122Z",
-      "updatedAt": "2026-09-23T14:59:25.122Z"
+      "createdAt": "2026-09-24T06:36:43.023Z",
+      "updatedAt": "2026-09-24T06:36:43.023Z"
     },
     {
       "id": "rating_jai_01",
       "userId": "usr_user_002",
       "storeId": "store_jai_001",
       "rating": 5,
-      "createdAt": "2026-09-28T14:59:25.122Z",
-      "updatedAt": "2026-09-28T14:59:25.122Z"
+      "createdAt": "2026-09-29T06:36:43.023Z",
+      "updatedAt": "2026-09-29T06:36:43.023Z"
     },
     {
       "id": "rating_jai_02",
       "userId": "usr_user_001",
       "storeId": "store_jai_002",
       "rating": 4,
-      "createdAt": "2026-09-25T14:59:25.122Z",
-      "updatedAt": "2026-09-25T14:59:25.122Z"
+      "createdAt": "2026-09-26T06:36:43.023Z",
+      "updatedAt": "2026-09-26T06:36:43.023Z"
     },
     {
       "id": "rating_kol_01",
       "userId": "usr_user_001",
       "storeId": "store_kol_001",
       "rating": 5,
-      "createdAt": "2026-09-21T14:59:25.122Z",
-      "updatedAt": "2026-09-21T14:59:25.122Z"
+      "createdAt": "2026-09-22T06:36:43.023Z",
+      "updatedAt": "2026-09-22T06:36:43.023Z"
     },
     {
       "id": "rating_kol_02",
       "userId": "usr_user_002",
       "storeId": "store_kol_002",
       "rating": 5,
-      "createdAt": "2026-09-22T14:59:25.122Z",
-      "updatedAt": "2026-09-22T14:59:25.122Z"
+      "createdAt": "2026-09-23T06:36:43.023Z",
+      "updatedAt": "2026-09-23T06:36:43.023Z"
     },
     {
       "id": "rating_chn_01",
       "userId": "usr_user_003",
       "storeId": "store_chn_001",
       "rating": 5,
-      "createdAt": "2026-09-26T14:59:25.122Z",
-      "updatedAt": "2026-09-26T14:59:25.122Z"
+      "createdAt": "2026-09-27T06:36:43.023Z",
+      "updatedAt": "2026-09-27T06:36:43.023Z"
     },
     {
       "id": "rating_chn_02",
       "userId": "usr_user_001",
       "storeId": "store_chn_002",
       "rating": 5,
-      "createdAt": "2026-09-24T14:59:25.122Z",
-      "updatedAt": "2026-09-24T14:59:25.122Z"
+      "createdAt": "2026-09-25T06:36:43.023Z",
+      "updatedAt": "2026-09-25T06:36:43.023Z"
     },
     {
-      "id": "rating_c285228a-9a8",
+      "id": "rating_27575431-101",
       "userId": "usr_user_001",
       "storeId": "store_003",
       "rating": 5,
-      "createdAt": "2026-10-02T14:59:25.771Z",
-      "updatedAt": "2026-10-02T14:59:25.782Z"
+      "createdAt": "2026-10-03T06:36:44.080Z",
+      "updatedAt": "2026-10-03T06:36:44.086Z"
     }
   ]
 }

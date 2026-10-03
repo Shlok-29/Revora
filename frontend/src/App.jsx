@@ -24,7 +24,7 @@ import {
   StatCard,
   useToast,
 } from './components.jsx';
-import { INDIAN_CITIES } from './utils/indianCities.js';
+import { INDIAN_CITIES, detectCityFromAddress } from './utils/indianCities.js';
 
 const formatDate = (value) =>
   new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(value));
@@ -181,13 +181,10 @@ function AuthLayout({ eyebrow, title, detail, children, footer }) {
 }
 
 function LoginPage() {
-  const { login, isAuthenticated, location, updateLocation, requestBrowserLocation } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const toast = useToast();
   const [error, setError] = useState('');
-  const [city, setCity] = useState(location?.city || 'Mumbai');
-  const [detecting, setDetecting] = useState(false);
-  const [locationStatus, setLocationStatus] = useState('');
 
   const {
     register,
@@ -200,43 +197,10 @@ function LoginPage() {
     if (isAuthenticated) navigate('/', { replace: true });
   }, [isAuthenticated, navigate]);
 
-  const handleDetectLocation = async () => {
-    setDetecting(true);
-    setLocationStatus('Requesting browser location permission…');
-    try {
-      const detected = await requestBrowserLocation();
-      setCity(detected.city);
-      setLocationStatus(`📍 Detected: ${detected.city} (${detected.state}) ✓`);
-      toast(`GPS location detected: ${detected.city}`);
-    } catch (err) {
-      setLocationStatus(`⚠️ ${err.message || 'Location permission denied. Please pick from list.'}`);
-      toast(err.message || 'Permission denied', 'error');
-    } finally {
-      setDetecting(false);
-    }
-  };
-
   const submit = async (values) => {
     try {
-      const match = INDIAN_CITIES.find((c) => c.name.toLowerCase() === city.toLowerCase());
-      const selectedLat = location?.isDetected ? location.lat : match?.lat ?? 19.0760;
-      const selectedLng = location?.isDetected ? location.lng : match?.lng ?? 72.8777;
-
-      await updateLocation({
-        city,
-        state: match?.state || 'India',
-        lat: selectedLat,
-        lng: selectedLng,
-      });
-
-      await login({
-        ...values,
-        city,
-        lat: selectedLat,
-        lng: selectedLng,
-      });
-
-      toast(`Signed in. Welcome to REVORA in ${city}!`);
+      await login(values);
+      toast(`Signed in. Welcome back to REVORA!`);
     } catch (err) {
       setError(getApiError(err));
     }
@@ -257,7 +221,7 @@ function LoginPage() {
       <form className="auth-form" onSubmit={handleSubmit(submit)}>
         <div className="form-heading">
           <h2>Sign in</h2>
-          <p>Select your city to discover the nearest restaurants and cafes.</p>
+          <p>Enter your credentials to access your account and curated places.</p>
         </div>
         {error && <div className="form-alert">{error}</div>}
 
@@ -272,33 +236,6 @@ function LoginPage() {
             placeholder="••••••••"
           />
         </FormField>
-
-        {/* City Input & Location Permission Section */}
-        <div className="auth-location-section">
-          <div className="location-label-row">
-            <span className="location-label">Your City (India)</span>
-            <button
-              type="button"
-              className="detect-btn-inline"
-              onClick={handleDetectLocation}
-              disabled={detecting}
-            >
-              {detecting ? '⏳ Asking permission…' : '📍 Auto-detect GPS'}
-            </button>
-          </div>
-
-          <CitySelect value={city} onChange={setCity} />
-
-          {locationStatus && (
-            <div className={`location-status-badge ${locationStatus.includes('⚠️') ? 'is-warning' : 'is-success'}`}>
-              {locationStatus}
-            </div>
-          )}
-
-          <small className="location-footnote">
-            We use your city and location to display the nearest restaurants and cafes.
-          </small>
-        </div>
 
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Checking…' : 'Sign in to REVORA'} <span>↗</span>
@@ -315,7 +252,6 @@ function LoginPage() {
             onClick={() => {
               setValue('email', 'admin@revora.app');
               setValue('password', 'Admin!234');
-              setCity('Mumbai');
             }}
           >
             Admin
@@ -324,7 +260,6 @@ function LoginPage() {
             onClick={() => {
               setValue('email', 'nora@revora.app');
               setValue('password', 'User!2345');
-              setCity('Mumbai');
             }}
           >
             Member
@@ -333,7 +268,6 @@ function LoginPage() {
             onClick={() => {
               setValue('email', 'owner@revora.app');
               setValue('password', 'Owner!234');
-              setCity('Mumbai');
             }}
           >
             Owner
@@ -349,57 +283,47 @@ function LoginPage() {
 }
 
 function SignupPage() {
-  const { signup, location, updateLocation, requestBrowserLocation } = useAuth();
+  const { signup, updateLocation } = useAuth();
   const navigate = useNavigate();
   const toast = useToast();
   const [error, setError] = useState('');
-  const [city, setCity] = useState(location?.city || 'Mumbai');
-  const [detecting, setDetecting] = useState(false);
-  const [locationStatus, setLocationStatus] = useState('');
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const handleDetectLocation = async () => {
-    setDetecting(true);
-    setLocationStatus('Requesting browser location permission…');
-    try {
-      const detected = await requestBrowserLocation();
-      setCity(detected.city);
-      setLocationStatus(`📍 Detected: ${detected.city} (${detected.state}) ✓`);
-      toast(`GPS location detected: ${detected.city}`);
-    } catch (err) {
-      setLocationStatus(`⚠️ ${err.message || 'Location permission denied. Please pick from list.'}`);
-      toast(err.message || 'Permission denied', 'error');
-    } finally {
-      setDetecting(false);
-    }
-  };
+  const addressValue = watch('address') || '';
+  const detectedCity = useMemo(() => {
+    if (!addressValue.trim()) return null;
+    return detectCityFromAddress(addressValue);
+  }, [addressValue]);
 
   const submit = async (values) => {
     try {
-      const match = INDIAN_CITIES.find((c) => c.name.toLowerCase() === city.toLowerCase());
-      const selectedLat = location?.isDetected ? location.lat : match?.lat ?? 19.0760;
-      const selectedLng = location?.isDetected ? location.lng : match?.lng ?? 72.8777;
+      const detected = detectCityFromAddress(values.address);
+      const chosenCity = detected?.name || 'Mumbai';
+      const chosenState = detected?.state || 'Maharashtra';
+      const chosenLat = detected?.lat ?? 19.0760;
+      const chosenLng = detected?.lng ?? 72.8777;
 
       await updateLocation({
-        city,
-        state: match?.state || 'India',
-        lat: selectedLat,
-        lng: selectedLng,
+        city: chosenCity,
+        state: chosenState,
+        lat: chosenLat,
+        lng: chosenLng,
       });
 
       await signup({
         ...values,
-        city,
-        lat: selectedLat,
-        lng: selectedLng,
+        city: chosenCity,
+        lat: chosenLat,
+        lng: chosenLng,
       });
 
-      toast(`Account created in ${city}. Start exploring nearest places!`);
+      toast(`Account created in ${chosenCity}. Start exploring nearest places!`);
       navigate('/stores');
     } catch (err) {
       setError(getApiError(err));
@@ -440,34 +364,25 @@ function SignupPage() {
           <input {...register('email', { required: 'Email is required.' })} type="email" placeholder="you@example.com" />
         </FormField>
 
-        {/* City Input & Location Permission Section */}
-        <div className="auth-location-section">
-          <div className="location-label-row">
-            <span className="location-label">Your City (India)</span>
-            <button
-              type="button"
-              className="detect-btn-inline"
-              onClick={handleDetectLocation}
-              disabled={detecting}
-            >
-              {detecting ? '⏳ Asking permission…' : '📍 Auto-detect GPS'}
-            </button>
-          </div>
-
-          <CitySelect value={city} onChange={setCity} />
-
-          {locationStatus && (
-            <div className={`location-status-badge ${locationStatus.includes('⚠️') ? 'is-warning' : 'is-success'}`}>
-              {locationStatus}
+        <FormField
+          label="Address"
+          error={errors.address?.message}
+          hint="Neighborhood, locality, street, or PIN (e.g. Bandra, Mumbai or Indiranagar, Bengaluru)"
+        >
+          <input
+            {...register('address', {
+              maxLength: { value: 400, message: 'Address must be 400 characters or fewer.' },
+            })}
+            placeholder="e.g. 14 Observatory Way, Fort, Mumbai"
+          />
+          {detectedCity && addressValue.trim().length >= 3 && (
+            <div className="address-detected-city-badge">
+              <span>📍</span>
+              <span>
+                Auto-detected City: <strong>{detectedCity.name}</strong> ({detectedCity.state})
+              </span>
             </div>
           )}
-        </div>
-
-        <FormField label="Address" error={errors.address?.message}>
-          <input
-            {...register('address', { maxLength: { value: 400, message: 'Address must be 400 characters or fewer.' } })}
-            placeholder="Neighborhood, street address"
-          />
         </FormField>
 
         <FormField label="Password" error={errors.password?.message} hint="8–16 chars · 1 uppercase · 1 special">
@@ -709,7 +624,7 @@ function AdminUsers() {
     setLoading(true);
     unwrap(
       api.get('/admin/users', {
-        params: { name: search, role, sortBy: sort.by, order: sort.order },
+        params: { search, name: search, role, sortBy: sort.by, order: sort.order },
       })
     )
       .then((data) => setRows(data.items))
@@ -760,9 +675,13 @@ function AdminUsers() {
               render: (row) => (
                 <Link className="table-primary" to={`/admin/users/${row.id}`}>
                   {row.name}
-                  <small>{row.email}</small>
                 </Link>
               ),
+            },
+            {
+              key: 'email',
+              label: <SortButton label="Email" active={sort.by === 'email'} order={sort.order} onClick={() => toggleSort('email')} />,
+              render: (row) => <span className="muted-cell">{row.email}</span>,
             },
             {
               key: 'role',
@@ -968,7 +887,7 @@ function AdminStores() {
 
   const load = () => {
     setLoading(true);
-    unwrap(api.get('/admin/stores', { params: { name: search, sortBy: sort.by, order: sort.order } }))
+    unwrap(api.get('/admin/stores', { params: { search, name: search, sortBy: sort.by, order: sort.order } }))
       .then((data) => setRows(data.items))
       .finally(() => setLoading(false));
   };
@@ -1010,9 +929,14 @@ function AdminStores() {
               render: (row) => (
                 <div className="table-primary">
                   {row.name}
-                  <small>{row.category || 'Place'} · {row.email}</small>
+                  {row.category && <small>{row.category}</small>}
                 </div>
               ),
+            },
+            {
+              key: 'email',
+              label: <SortButton label="Email" active={sort.by === 'email'} order={sort.order} onClick={() => toggleSort('email')} />,
+              render: (row) => <span className="muted-cell">{row.email}</span>,
             },
             {
               key: 'city',
@@ -1031,7 +955,7 @@ function AdminStores() {
             },
             {
               key: 'avgRating',
-              label: <SortButton label="Signal" active={sort.by === 'avgRating'} order={sort.order} onClick={() => toggleSort('avgRating')} />,
+              label: <SortButton label="Rating" active={sort.by === 'avgRating'} order={sort.order} onClick={() => toggleSort('avgRating')} />,
               render: (row) => <RatingSummary value={row.avgRating} count={row.ratingCount} />,
             },
           ]}

@@ -16,7 +16,7 @@ const request = async (path, options = {}) => {
 };
 
 before(async () => {
-  resetData();
+  resetData(true);
   server = app.listen(0);
   await new Promise((resolve) => server.once('listening', resolve));
   base = `http://127.0.0.1:${server.address().port}/api`;
@@ -36,6 +36,23 @@ test('rejects invalid signup fields and forces public signup to USER', async () 
   assert.equal(valid.status, 201);
   assert.equal(valid.body.user.role, 'USER');
   assert.ok(valid.body.token);
+});
+
+test('analyzes and understands the city from the address entered during signup', async () => {
+  const email = `city-test-${Date.now()}@revora.app`;
+  const signupRes = await request('/auth/signup', {
+    method: 'POST',
+    body: {
+      name: 'A Bangalore specialty coffee explorer',
+      email,
+      password: 'Coffee!123',
+      address: '42 Indiranagar 100ft Road, Bangalore, 560038',
+    },
+  });
+  assert.equal(signupRes.status, 201);
+  assert.equal(signupRes.body.user.city, 'Bengaluru');
+  assert.ok(signupRes.body.user.lat != null);
+  assert.ok(signupRes.body.user.lng != null);
 });
 
 test('logs in and blocks a normal member from admin routes', async () => {

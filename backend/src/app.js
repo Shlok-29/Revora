@@ -19,7 +19,7 @@ import {
   saveDbToFile,
   loadDbFromFile,
 } from './utils/data.js';
-import { INDIAN_CITIES, calculateDistanceKm, findNearestIndianCity } from './utils/indianCities.js';
+import { INDIAN_CITIES, calculateDistanceKm, findNearestIndianCity, detectCityFromAddress } from './utils/indianCities.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'revora-local-development-secret';
 const FRONTEND_DIST = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../frontend/dist');
@@ -142,12 +142,18 @@ app.post('/api/auth/signup', (req, res, next) => {
   try {
     const input = parseBody(signupSchema, req.body);
     if (db.users.some((user) => user.email.toLowerCase() === input.email.toLowerCase())) fail(409, 'An account with that email already exists.');
+
+    const detected = detectCityFromAddress(input.address);
+    const resolvedCity = input.city || detected?.name || 'Mumbai';
+    const resolvedLat = input.lat ?? detected?.lat ?? 19.0760;
+    const resolvedLng = input.lng ?? detected?.lng ?? 72.8777;
+
     const user = {
       id: makeId('usr'),
       ...input,
-      city: input.city || null,
-      lat: input.lat ?? null,
-      lng: input.lng ?? null,
+      city: resolvedCity,
+      lat: resolvedLat,
+      lng: resolvedLng,
       email: input.email.toLowerCase(),
       passwordHash: bcrypt.hashSync(input.password, 10),
       role: 'USER',
@@ -197,11 +203,24 @@ app.put('/api/auth/password', authenticate, (req, res, next) => {
 app.get('/api/admin/stats', authenticate, authorize('ADMIN'), (_req, res) => respond(res, { stats: { users: db.users.length, stores: db.stores.length, ratings: db.ratings.length } }));
 
 app.get('/api/admin/users', authenticate, authorize('ADMIN'), (req, res) => {
-  const { name = '', email = '', address = '', role = '', sortBy = 'createdAt', order = 'desc', page, limit } = req.query;
+  const { search = '', name = '', email = '', address = '', role = '', sortBy = 'createdAt', order = 'desc', page, limit } = req.query;
   const allowedSorts = ['name', 'email', 'address', 'role', 'createdAt'];
   const sortKey = allowedSorts.includes(sortBy) ? sortBy : 'createdAt';
   const direction = sortValue(order) === 'asc' ? 1 : -1;
-  const filtered = db.users.filter((user) => [user.name, user.email, user.address, user.city || ''].join(' ').toLowerCase().includes(`${name} ${email} ${address}`.trim().toLowerCase()) && (!role || user.role === role)).sort((a, b) => String(a[sortKey]).localeCompare(String(b[sortKey])) * direction).map(publicUser);
+  const sQuery = String(search).trim().toLowerCase();
+  const nQuery = String(name).trim().toLowerCase();
+  const eQuery = String(email).trim().toLowerCase();
+  const aQuery = String(address).trim().toLowerCase();
+
+  const filtered = db.users.filter((user) => {
+    if (role && user.role !== role) return false;
+    if (sQuery && ![user.name, user.email, user.address, user.city || ''].join(' ').toLowerCase().includes(sQuery)) return false;
+    if (nQuery && !user.name.toLowerCase().includes(nQuery)) return false;
+    if (eQuery && !user.email.toLowerCase().includes(eQuery)) return false;
+    if (aQuery && ![user.address, user.city || ''].join(' ').toLowerCase().includes(aQuery)) return false;
+    return true;
+  }).sort((a, b) => String(a[sortKey] ?? '').localeCompare(String(b[sortKey] ?? '')) * direction).map(publicUser);
+
   respond(res, { ...paginate(filtered, page, limit) });
 });
 
@@ -233,11 +252,28 @@ app.post('/api/admin/users', authenticate, authorize('ADMIN'), (req, res, next) 
 });
 
 app.get('/api/admin/stores', authenticate, authorize('ADMIN'), (req, res) => {
-  const { name = '', email = '', address = '', sortBy = 'name', order = 'asc', page, limit } = req.query;
+  const { search = '', name = '', email = '', address = '', sortBy = 'name', order = 'asc', page, limit } = req.query;
   const allowedSorts = ['name', 'email', 'address', 'avgRating', 'ratingCount'];
   const sortKey = allowedSorts.includes(sortBy) ? sortBy : 'name';
   const direction = sortValue(order) === 'asc' ? 1 : -1;
-  const filtered = db.stores.filter((store) => `${store.name} ${store.email} ${store.address} ${store.city || ''}`.toLowerCase().includes(`${name} ${email} ${address}`.trim().toLowerCase())).map((store) => withStoreStats(store)).sort((a, b) => String(a[sortKey] ?? '').localeCompare(String(b[sortKey] ?? '')) * direction);
+  const sQuery = String(search).trim().toLowerCase();
+  const nQuery = String(name).trim().toLowerCase();
+  const eQuery = String(email).trim().toLowerCase();
+  const aQuery = String(address).trim().toLowerCase();
+
+  const filtered = db.stores.filter((store) => {
+    if (sQuery && ![store.name, store.email, store.address, store.city || ''].join(' ').toLowerCase().includes(sQuery)) return false;
+    if (nQuery && !store.name.toLowerCase().includes(nQuery)) return false;
+    if (eQuery && !store.email.toLowerCase().includes(eQuery)) return false;
+    if (aQuery && ![store.address, store.city || ''].join(' ').toLowerCase().includes(aQuery)) return false;
+    return true;
+  }).map((store) => withStoreStats(store)).sort((a, b) => {
+    if (sortKey === 'avgRating' || sortKey === 'ratingCount') {
+      return ((a[sortKey] ?? -1) - (b[sortKey] ?? -1)) * direction;
+    }
+    return String(a[sortKey] ?? '').localeCompare(String(b[sortKey] ?? '')) * direction;
+  });
+
   respond(res, { ...paginate(filtered, page, limit) });
 });
 
