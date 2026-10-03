@@ -1,6 +1,4 @@
-// Curated list of Indian cities with coordinates for client-side dropdown & geolocation matching
 export const INDIAN_CITIES = [
-  // Top Metros (Tier 1)
   { name: 'Mumbai', state: 'Maharashtra', lat: 19.0760, lng: 72.8777, tier: 1 },
   { name: 'Delhi', state: 'Delhi NCR', lat: 28.6139, lng: 77.2090, tier: 1 },
   { name: 'Bengaluru', state: 'Karnataka', lat: 12.9716, lng: 77.5946, tier: 1 },
@@ -9,8 +7,6 @@ export const INDIAN_CITIES = [
   { name: 'Chennai', state: 'Tamil Nadu', lat: 13.0827, lng: 80.2707, tier: 1 },
   { name: 'Kolkata', state: 'West Bengal', lat: 22.5726, lng: 88.3639, tier: 1 },
   { name: 'Pune', state: 'Maharashtra', lat: 18.5204, lng: 73.8567, tier: 1 },
-
-  // Tier 2 & Popular Hubs
   { name: 'Jaipur', state: 'Rajasthan', lat: 26.9124, lng: 75.7873, tier: 2 },
   { name: 'Surat', state: 'Gujarat', lat: 21.1702, lng: 72.8311, tier: 2 },
   { name: 'Lucknow', state: 'Uttar Pradesh', lat: 26.8467, lng: 80.9462, tier: 2 },
@@ -100,9 +96,7 @@ export const findNearestIndianCity = (lat, lng) => {
   return closest;
 };
 
-// Aliases, prominent localities, and historical city names mapped to canonical INDIAN_CITIES
 const CITY_ALIASES = [
-  // Multi-word matches first
   { term: 'navi mumbai', city: 'Navi Mumbai' },
   { term: 'new delhi', city: 'Delhi' },
   { term: 'greater noida', city: 'Noida' },
@@ -136,8 +130,6 @@ const CITY_ALIASES = [
   { term: 'gomti nagar', city: 'Lucknow' },
   { term: 'hazratganj', city: 'Lucknow' },
   { term: 'white town', city: 'Puducherry' },
-
-  // Single word city aliases & prominent areas
   { term: 'bombay', city: 'Mumbai' },
   { term: 'mumbai', city: 'Mumbai' },
   { term: 'bandra', city: 'Mumbai' },
@@ -382,7 +374,6 @@ export const detectCityFromAddress = (address) => {
 
   const clean = address.toLowerCase();
 
-  // 1. Check city names and common aliases / localities
   for (const { term, city } of CITY_ALIASES) {
     const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, 'i');
@@ -394,7 +385,6 @@ export const detectCityFromAddress = (address) => {
     }
   }
 
-  // 2. Check 6-digit Indian PIN codes (e.g., 400050, 560038)
   const pinMatch = clean.match(/\b([1-9][0-9]{5})\b/);
   if (pinMatch) {
     const pin = pinMatch[1];
@@ -408,7 +398,6 @@ export const detectCityFromAddress = (address) => {
     }
   }
 
-  // 3. Check Indian states
   for (const { state, city } of STATE_MAPPINGS) {
     const regex = new RegExp(`(^|[^a-z0-9])${state}([^a-z0-9]|$)`, 'i');
     if (regex.test(clean)) {
@@ -419,7 +408,6 @@ export const detectCityFromAddress = (address) => {
     }
   }
 
-  // Default fallback: Mumbai
   return { ...INDIAN_CITIES[0], matchedBy: 'default' };
 };
 

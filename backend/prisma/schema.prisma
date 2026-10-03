@@ -19,6 +19,9 @@ model User {
   email        String   @unique @db.VarChar(255)
   passwordHash String   @map("password_hash")
   address      String   @db.VarChar(400)
+  city         String?  @db.VarChar(100)
+  lat          Float?
+  lng          Float?
   role         Role     @default(USER)
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")
@@ -34,6 +37,10 @@ model Store {
   name      String   @db.VarChar(120)
   email     String   @unique @db.VarChar(255)
   address   String   @db.VarChar(400)
+  city      String?  @db.VarChar(100)
+  category  String?  @db.VarChar(100)
+  lat       Float?
+  lng       Float?
   ownerId   String?  @unique @map("owner_id") @db.Uuid
   owner     User?    @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: SetNull)
   ratings   Rating[]

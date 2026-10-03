@@ -291,15 +291,8 @@ function SignupPage() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors, isSubmitting },
   } = useForm();
-
-  const addressValue = watch('address') || '';
-  const detectedCity = useMemo(() => {
-    if (!addressValue.trim()) return null;
-    return detectCityFromAddress(addressValue);
-  }, [addressValue]);
 
   const submit = async (values) => {
     try {
@@ -323,7 +316,7 @@ function SignupPage() {
         lng: chosenLng,
       });
 
-      toast(`Account created in ${chosenCity}. Start exploring nearest places!`);
+      toast('Account created successfully! Welcome to REVORA.');
       navigate('/stores');
     } catch (err) {
       setError(getApiError(err));
@@ -375,14 +368,6 @@ function SignupPage() {
             })}
             placeholder="e.g. 14 Observatory Way, Fort, Mumbai"
           />
-          {detectedCity && addressValue.trim().length >= 3 && (
-            <div className="address-detected-city-badge">
-              <span>📍</span>
-              <span>
-                Auto-detected City: <strong>{detectedCity.name}</strong> ({detectedCity.state})
-              </span>
-            </div>
-          )}
         </FormField>
 
         <FormField label="Password" error={errors.password?.message} hint="8–16 chars · 1 uppercase · 1 special">
@@ -1138,7 +1123,6 @@ function StoreList() {
 
   return (
     <>
-      {/* Hero Section */}
       <section className="discover-hero-section">
         <div className="discover-hero-content">
           <div className="eyebrow discover-hero-eyebrow">
@@ -1170,7 +1154,6 @@ function StoreList() {
         </div>
       </section>
 
-      {/* Category Filter Tabs */}
       <div className="category-tabs-bar">
         {categories.map((cat) => (
           <button
@@ -1440,7 +1423,6 @@ function UserProfile({ defaultTab = 'overview' }) {
         description="Manage your community identity, discovery location preferences, and account password security."
       />
 
-      {/* Profile Overview Hero Banner */}
       <section className="profile-hero-card">
         <div className="profile-hero-badge-wrap">
           <div className="profile-hero-avatar">{initial}</div>
@@ -1460,7 +1442,6 @@ function UserProfile({ defaultTab = 'overview' }) {
         </div>
       </section>
 
-      {/* Profile Section Tabs */}
       <div className="profile-section-nav">
         <button
           type="button"
@@ -1480,7 +1461,6 @@ function UserProfile({ defaultTab = 'overview' }) {
 
       {activeTab === 'overview' && (
         <div className="profile-grid">
-          {/* Identity Info */}
           <SectionCard className="profile-info-card">
             <div className="card-kicker">
               <span>Account Identity</span>
@@ -1507,7 +1487,6 @@ function UserProfile({ defaultTab = 'overview' }) {
             </div>
           </SectionCard>
 
-          {/* Location Preferences */}
           <SectionCard className="profile-location-card">
             <div className="card-kicker">
               <span>Discovery Preferences</span>
@@ -1539,7 +1518,6 @@ function UserProfile({ defaultTab = 'overview' }) {
         </div>
       )}
 
-      {/* Security Section (Inside User Profile!) */}
       {activeTab === 'security' && (
         <div className="profile-grid">
           <SectionCard className="profile-security-card">

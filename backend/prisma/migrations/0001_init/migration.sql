@@ -1,2 +1,2 @@
--- REVORA schema is represented by backend/prisma/schema.prisma.
--- Run `npm run prisma:migrate` against PostgreSQL to create the database tables.
+-- Initial schema
+

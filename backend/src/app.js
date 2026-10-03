@@ -7,6 +7,13 @@ import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import fs from 'node:fs';
+
+if (typeof process.loadEnvFile === 'function' && fs.existsSync('.env')) {
+  try { process.loadEnvFile(); } catch {}
+}
+
+import prisma from './utils/prisma.js';
 import {
   averageForStore,
   countForStore,
@@ -34,10 +41,15 @@ export class AppError extends Error {
 
 const app = express();
 app.disable('x-powered-by');
-app.use(helmet({ contentSecurityPolicy: false, frameguard: false }));
-app.use(cors({ origin: process.env.CORS_ORIGIN || true, credentials: true }));
+app.use(helmet({ contentSecurityPolicy: false, frameguard: false, crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+const corsOrigin = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim())
+  : true;
+app.use(cors({ origin: corsOrigin, credentials: true }));
 app.use(express.json({ limit: '1mb' }));
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 400, standardHeaders: true, legacyHeaders: false }));
+
+app.get('/api/health', (_req, res) => res.json({ status: 'healthy', timestamp: new Date().toISOString() }));
 
 const respond = (res, data, status = 200) => res.status(status).json({ success: true, ...data });
 const fail = (status, message, errors) => { throw new AppError(status, message, errors); };
@@ -162,14 +174,52 @@ app.post('/api/auth/signup', (req, res, next) => {
     };
     db.users.push(user);
     saveDbToFile();
+    if (prisma) {
+      prisma.user.create({
+        data: {
+          name: user.name,
+          email: user.email,
+          passwordHash: user.passwordHash,
+          address: user.address,
+          city: user.city || null,
+          lat: user.lat ?? null,
+          lng: user.lng ?? null,
+          role: 'USER'
+        }
+      }).catch((err) => console.warn('Prisma signup sync:', err.message));
+    }
     respond(res, { user: publicUser(user), token: tokenFor(user) }, 201);
   } catch (error) { next(error); }
 });
 
-app.post('/api/auth/login', (req, res, next) => {
+app.post('/api/auth/login', async (req, res, next) => {
   try {
     const input = parseBody(loginSchema, req.body);
-    const user = db.users.find((candidate) => candidate.email.toLowerCase() === input.email.toLowerCase());
+    let user = db.users.find((candidate) => candidate.email.toLowerCase() === input.email.toLowerCase());
+    if (!user && prisma) {
+      try {
+        const dbUser = await prisma.user.findUnique({ where: { email: input.email.toLowerCase() } });
+        if (dbUser) {
+          user = {
+            id: dbUser.id,
+            name: dbUser.name,
+            email: dbUser.email,
+            address: dbUser.address,
+            city: dbUser.city || null,
+            lat: dbUser.lat ?? null,
+            lng: dbUser.lng ?? null,
+            passwordHash: dbUser.passwordHash,
+            role: dbUser.role,
+            createdAt: dbUser.createdAt.toISOString(),
+            updatedAt: dbUser.updatedAt.toISOString(),
+          };
+          db.users.push(user);
+          saveDbToFile();
+        }
+      } catch (err) {
+        console.warn('Prisma login lookup:', err.message);
+      }
+    }
     if (!user || !bcrypt.compareSync(input.password, user.passwordHash)) fail(401, 'Email or password is incorrect.');
     if (input.city) user.city = input.city;
     if (input.lat != null) user.lat = input.lat;
@@ -186,6 +236,12 @@ app.put('/api/auth/location', authenticate, (req, res) => {
   if (lng != null && !Number.isNaN(Number(lng))) req.user.lng = Number(lng);
   req.user.updatedAt = new Date().toISOString();
   saveDbToFile();
+  if (prisma) {
+    prisma.user.updateMany({
+      where: { email: req.user.email.toLowerCase() },
+      data: { city: req.user.city, lat: req.user.lat, lng: req.user.lng }
+    }).catch((err) => console.warn('Prisma location sync:', err.message));
+  }
   respond(res, { user: publicUser(req.user), message: 'Location updated.' });
 });
 
@@ -196,6 +252,12 @@ app.put('/api/auth/password', authenticate, (req, res, next) => {
     req.user.passwordHash = bcrypt.hashSync(input.newPassword, 10);
     req.user.updatedAt = new Date().toISOString();
     saveDbToFile();
+    if (prisma) {
+      prisma.user.updateMany({
+        where: { email: req.user.email.toLowerCase() },
+        data: { passwordHash: req.user.passwordHash }
+      }).catch((err) => console.warn('Prisma password sync:', err.message));
+    }
     respond(res, { message: 'Password updated successfully.' });
   } catch (error) { next(error); }
 });
@@ -314,7 +376,6 @@ app.get('/api/stores', authenticate, authorize('USER'), (req, res) => {
     limit,
   } = req.query;
 
-  // Resolve user coords
   let userCoords = null;
   if (lat != null && lng != null && !Number.isNaN(Number(lat)) && !Number.isNaN(Number(lng))) {
     userCoords = { lat: Number(lat), lng: Number(lng) };
@@ -331,11 +392,9 @@ app.get('/api/stores', authenticate, authorize('USER'), (req, res) => {
   const catQuery = String(category).toLowerCase();
   const cityQuery = String(city).toLowerCase().trim();
 
-  // If a city is provided, default to strict city filtering unless onlyCity === 'false'
   const isOnlyCity = onlyCity !== undefined ? (onlyCity === 'true' || onlyCity === true) : Boolean(cityQuery);
 
   let filtered = db.stores.filter((store) => {
-    // Exclude non-Indian / distant legacy stores unless specifically searched by text
     if (store.country === 'US' && !query) {
       if (cityQuery || userCoords) return false;
     }
@@ -372,14 +431,12 @@ app.get('/api/stores', authenticate, authorize('USER'), (req, res) => {
       const valA = a[sortKey] ?? -1;
       const valB = b[sortKey] ?? -1;
       if (valA !== valB) return (valA - valB) * direction;
-      // Secondary sort: nearest distance
       if (a.distanceKm != null && b.distanceKm != null) return a.distanceKm - b.distanceKm;
       return a.name.localeCompare(b.name);
     }
     return String(a[sortKey] ?? '').localeCompare(String(b[sortKey] ?? '')) * direction;
   });
 
-  // Prioritize nearest when distance coordinates exist and sort isn't specified or is default
   if (!req.query.sortBy && userCoords) {
     filtered.sort((a, b) => {
       if (cityQuery) {
@@ -439,7 +496,10 @@ app.use('/assets', express.static(path.join(FRONTEND_DIST, 'assets')));
 app.use(express.static(FRONTEND_DIST));
 app.use((req, res, next) => {
   if (req.path.startsWith('/api/')) return next(new AppError(404, 'API endpoint not found.'));
-  res.sendFile(path.join(FRONTEND_DIST, 'index.html'), (error) => error && next(new AppError(404, 'Page not found.')));
+  if (fs.existsSync(path.join(FRONTEND_DIST, 'index.html'))) {
+    return res.sendFile(path.join(FRONTEND_DIST, 'index.html'), (error) => error && next(new AppError(404, 'Page not found.')));
+  }
+  res.json({ message: 'REVORA API Server is running.', health: '/api/health' });
 });
 
 app.use((error, _req, res, _next) => {

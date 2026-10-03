@@ -136,7 +136,6 @@ export const resetData = (force = false) => {
   ];
 
   db.stores = [
-    // --- BHOPAL Cafes & Restaurants (Madhya Pradesh) ---
     {
       id: 'store_bho_001',
       name: 'Under The Mango Tree (Jehan Numa Palace)',
@@ -287,8 +286,6 @@ export const resetData = (force = false) => {
       createdAt: now(80),
       updatedAt: now(5),
     },
-
-    // --- INDORE Cafes & Restaurants (Madhya Pradesh) ---
     {
       id: 'store_ind_001',
       name: 'Med Gelato & Bakery Cafe',
@@ -334,8 +331,6 @@ export const resetData = (force = false) => {
       createdAt: now(85),
       updatedAt: now(2),
     },
-
-    // --- MUMBAI Cafes & Restaurants ---
     {
       id: 'store_mum_001',
       name: 'Subko Coffee Roasters & Craft Bakehouse',
@@ -426,8 +421,6 @@ export const resetData = (force = false) => {
       createdAt: now(75),
       updatedAt: now(8),
     },
-
-    // --- DELHI NCR Cafes & Restaurants ---
     {
       id: 'store_del_001',
       name: 'Indian Accent',
@@ -488,8 +481,6 @@ export const resetData = (force = false) => {
       createdAt: now(92),
       updatedAt: now(4),
     },
-
-    // --- BENGALURU Cafes & Restaurants ---
     {
       id: 'store_blr_001',
       name: 'Third Wave Coffee Roasters (Koramangala)',
@@ -550,8 +541,6 @@ export const resetData = (force = false) => {
       createdAt: now(94),
       updatedAt: now(2),
     },
-
-    // --- PUNE Cafes & Restaurants ---
     {
       id: 'store_pun_001',
       name: 'Cafe Goodluck',
@@ -582,8 +571,6 @@ export const resetData = (force = false) => {
       createdAt: now(110),
       updatedAt: now(3),
     },
-
-    // --- HYDERABAD Cafes & Restaurants ---
     {
       id: 'store_hyd_001',
       name: 'Roastery Coffee House',
@@ -614,8 +601,6 @@ export const resetData = (force = false) => {
       createdAt: now(118),
       updatedAt: now(3),
     },
-
-    // --- JAIPUR Cafes & Restaurants ---
     {
       id: 'store_jai_001',
       name: 'Tapri Central Rooftop Cafe',
@@ -646,8 +631,6 @@ export const resetData = (force = false) => {
       createdAt: now(91),
       updatedAt: now(5),
     },
-
-    // --- KOLKATA Cafes & Restaurants ---
     {
       id: 'store_kol_001',
       name: 'Flurys Tearoom & Confectionery',
@@ -678,8 +661,6 @@ export const resetData = (force = false) => {
       createdAt: now(120),
       updatedAt: now(4),
     },
-
-    // --- CHENNAI Cafes & Restaurants ---
     {
       id: 'store_chn_001',
       name: 'Amethyst Wild Garden Cafe',
@@ -710,8 +691,6 @@ export const resetData = (force = false) => {
       createdAt: now(115),
       updatedAt: now(3),
     },
-
-    // Legacy test stores (retained for backward compatibility and test 3)
     {
       id: 'store_001',
       name: 'Field & Finch',
@@ -797,8 +776,6 @@ export const resetData = (force = false) => {
     { id: 'rating_005', userId: 'usr_user_002', storeId: 'store_002', rating: 3, createdAt: now(6), updatedAt: now(6) },
     { id: 'rating_006', userId: 'usr_user_003', storeId: 'store_003', rating: 5, createdAt: now(4), updatedAt: now(4) },
     { id: 'rating_007', userId: 'usr_user_002', storeId: 'store_004', rating: 4, createdAt: now(9), updatedAt: now(9) },
-
-    // BHOPAL ratings
     { id: 'rating_bho_01', userId: 'usr_user_001', storeId: 'store_bho_001', rating: 5, createdAt: now(3), updatedAt: now(3) },
     { id: 'rating_bho_02', userId: 'usr_user_002', storeId: 'store_bho_001', rating: 5, createdAt: now(2), updatedAt: now(2) },
     { id: 'rating_bho_03', userId: 'usr_user_001', storeId: 'store_bho_002', rating: 5, createdAt: now(4), updatedAt: now(4) },
@@ -812,12 +789,10 @@ export const resetData = (force = false) => {
     { id: 'rating_bho_11', userId: 'usr_user_001', storeId: 'store_bho_009', rating: 5, createdAt: now(10), updatedAt: now(10) },
     { id: 'rating_bho_12', userId: 'usr_user_003', storeId: 'store_bho_010', rating: 5, createdAt: now(4), updatedAt: now(4) },
 
-    // INDORE ratings
     { id: 'rating_ind_01', userId: 'usr_user_001', storeId: 'store_ind_001', rating: 5, createdAt: now(3), updatedAt: now(3) },
     { id: 'rating_ind_02', userId: 'usr_user_002', storeId: 'store_ind_002', rating: 5, createdAt: now(4), updatedAt: now(4) },
     { id: 'rating_ind_03', userId: 'usr_user_003', storeId: 'store_ind_003', rating: 4, createdAt: now(5), updatedAt: now(5) },
 
-    // MUMBAI ratings
     { id: 'rating_mum_01', userId: 'usr_user_001', storeId: 'store_mum_001', rating: 5, createdAt: now(5), updatedAt: now(5) },
     { id: 'rating_mum_02', userId: 'usr_user_002', storeId: 'store_mum_001', rating: 5, createdAt: now(4), updatedAt: now(4) },
     { id: 'rating_mum_03', userId: 'usr_user_003', storeId: 'store_mum_001', rating: 5, createdAt: now(2), updatedAt: now(2) },
@@ -826,37 +801,30 @@ export const resetData = (force = false) => {
     { id: 'rating_mum_06', userId: 'usr_user_001', storeId: 'store_mum_003', rating: 5, createdAt: now(7), updatedAt: now(7) },
     { id: 'rating_mum_07', userId: 'usr_user_003', storeId: 'store_mum_005', rating: 4, createdAt: now(8), updatedAt: now(8) },
 
-    // DELHI ratings
     { id: 'rating_del_01', userId: 'usr_user_002', storeId: 'store_del_001', rating: 5, createdAt: now(5), updatedAt: now(5) },
     { id: 'rating_del_02', userId: 'usr_user_001', storeId: 'store_del_001', rating: 5, createdAt: now(3), updatedAt: now(3) },
     { id: 'rating_del_03', userId: 'usr_user_002', storeId: 'store_del_002', rating: 5, createdAt: now(4), updatedAt: now(4) },
     { id: 'rating_del_04', userId: 'usr_user_003', storeId: 'store_del_003', rating: 4, createdAt: now(6), updatedAt: now(6) },
     { id: 'rating_del_05', userId: 'usr_user_002', storeId: 'store_del_004', rating: 5, createdAt: now(7), updatedAt: now(7) },
 
-    // BENGALURU ratings
     { id: 'rating_blr_01', userId: 'usr_user_003', storeId: 'store_blr_001', rating: 5, createdAt: now(2), updatedAt: now(2) },
     { id: 'rating_blr_02', userId: 'usr_user_001', storeId: 'store_blr_001', rating: 5, createdAt: now(1), updatedAt: now(1) },
     { id: 'rating_blr_03', userId: 'usr_user_003', storeId: 'store_blr_002', rating: 5, createdAt: now(8), updatedAt: now(8) },
     { id: 'rating_blr_04', userId: 'usr_user_002', storeId: 'store_blr_003', rating: 5, createdAt: now(4), updatedAt: now(4) },
     { id: 'rating_blr_05', userId: 'usr_user_003', storeId: 'store_blr_004', rating: 5, createdAt: now(3), updatedAt: now(3) },
 
-    // PUNE ratings
     { id: 'rating_pun_01', userId: 'usr_user_001', storeId: 'store_pun_001', rating: 5, createdAt: now(6), updatedAt: now(6) },
     { id: 'rating_pun_02', userId: 'usr_user_002', storeId: 'store_pun_002', rating: 4, createdAt: now(5), updatedAt: now(5) },
 
-    // HYDERABAD ratings
     { id: 'rating_hyd_01', userId: 'usr_user_003', storeId: 'store_hyd_001', rating: 5, createdAt: now(7), updatedAt: now(7) },
     { id: 'rating_hyd_02', userId: 'usr_user_002', storeId: 'store_hyd_003', rating: 5, createdAt: now(9), updatedAt: now(9) },
 
-    // JAIPUR ratings
     { id: 'rating_jai_01', userId: 'usr_user_002', storeId: 'store_jai_001', rating: 5, createdAt: now(4), updatedAt: now(4) },
     { id: 'rating_jai_02', userId: 'usr_user_001', storeId: 'store_jai_002', rating: 4, createdAt: now(7), updatedAt: now(7) },
 
-    // KOLKATA ratings
     { id: 'rating_kol_01', userId: 'usr_user_001', storeId: 'store_kol_001', rating: 5, createdAt: now(11), updatedAt: now(11) },
     { id: 'rating_kol_02', userId: 'usr_user_002', storeId: 'store_kol_002', rating: 5, createdAt: now(10), updatedAt: now(10) },
 
-    // CHENNAI ratings
     { id: 'rating_chn_01', userId: 'usr_user_003', storeId: 'store_chn_001', rating: 5, createdAt: now(6), updatedAt: now(6) },
     { id: 'rating_chn_02', userId: 'usr_user_001', storeId: 'store_chn_002', rating: 5, createdAt: now(8), updatedAt: now(8) },
   ];

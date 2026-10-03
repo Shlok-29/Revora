@@ -356,7 +356,6 @@ export function Shell({ children }) {
           </nav>
 
           <div className="topbar-actions">
-            {/* Topbar Location selector */}
             <LocationTopbarWidget />
 
             <button

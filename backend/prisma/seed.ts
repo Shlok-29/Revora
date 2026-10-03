@@ -16,7 +16,7 @@ async function main() {
       role: 'ADMIN',
     },
   });
-  console.log('REVORA seed complete. Add the remaining demo records through your migration environment as needed.');
+  console.log('Seed completed successfully');
 }
 
 main().finally(() => prisma.$disconnect());
